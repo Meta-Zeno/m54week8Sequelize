@@ -26,16 +26,28 @@ const getAllBooks = async (req, res) => {
   }
 };
 
-// const getAllBooks = async (request, response) => {
-//   try {
-//     const books = await Book.find({});
-//     response.json({ message: "success all the books", books: books });
-//   } catch (error) {
-//     response.status(500).json({ message: error.message });
-//   }
-// };
+const updateBookAuthor = async (req, res) => {
+  try {
+    const { title } = req.params;
+    const { author } = req.body;
+    const updatedBook = await Book.findOneAndUpdate(
+      { title: title },
+      { author: author },
+      { new: true }
+    );
+    if (!updatedBook) {
+      return res.status(404).json({ message: "Book not found" });
+    }
+    res
+      .status(200)
+      .json({ message: "Book author updated successfully", updatedBook });
+  } catch (error) {
+    res.status(500).json({ message: error.message, error });
+  }
+};
 
 module.exports = {
   addBook: addBook,
   getAllBooks: getAllBooks,
+  updateBookAuthor: updateBookAuthor,
 };
