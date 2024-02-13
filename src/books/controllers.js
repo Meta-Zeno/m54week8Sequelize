@@ -16,6 +16,26 @@ const addBook = async (req, res) => {
   }
 };
 
+const getAllBooks = async (req, res) => {
+  try {
+    const books = await Book.findAll();
+
+    res.status(201).json({ message: "success all the books", books });
+  } catch (error) {
+    res.status(500).json({ message: error.message, error: error });
+  }
+};
+
+// const getAllBooks = async (request, response) => {
+//   try {
+//     const books = await Book.find({});
+//     response.json({ message: "success all the books", books: books });
+//   } catch (error) {
+//     response.status(500).json({ message: error.message });
+//   }
+// };
+
 module.exports = {
   addBook: addBook,
+  getAllBooks: getAllBooks,
 };

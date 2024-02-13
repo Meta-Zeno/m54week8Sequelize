@@ -5,16 +5,12 @@ const {
   addBook,
   getAllBooks,
   updateAuthor,
-  deleteBook,
+  //   deleteBook,
 } = require("./controllers");
-
-bookRouter.post("/books/addBook", addBook);
-
-module.exports = bookRouter;
 
 bookRouter.post("/books/addBook", addBook);
 bookRouter.get("/books/getAllBooks", getAllBooks);
 bookRouter.put("/books/updateAuthor", updateAuthor);
-bookRouter.delete("/books/deleteBook", deleteBook);
+// bookRouter.delete("/books/deleteBook", deleteBook);
 
 module.exports = bookRouter;
