@@ -4,13 +4,15 @@ const bookRouter = Router();
 const {
   addBook,
   getAllBooks,
-  updateBookAuthor,
-  //   deleteBookByTitle,
+  updateAuthor,
+  deleteBookByTitle,
+  deleteAllBooks,
 } = require("./controllers");
 
 bookRouter.post("/books/addBook", addBook);
-bookRouter.get("/books", getAllBooks);
-bookRouter.put("/books/:title/author", updateBookAuthor);
-// bookRouter.delete("/books/:title", deleteBookByTitle);
+bookRouter.get("/books/getAllBooks", getAllBooks);
+bookRouter.put("/books/updateAuthor", updateAuthor); //change this to title maybe?
+bookRouter.delete("/books/deleteBookByTitle", deleteBookByTitle);
+bookRouter.delete("/books/deleteAllBooks", deleteAllBooks);
 
 module.exports = bookRouter;
