@@ -22,7 +22,7 @@ app.use(genreRouter);
 const syncTables = async () => {
   Genre.hasOne(Book);
   Book.belongsTo(Genre);
-  Author.hasMany(Book);
+  Author.hasOne(Book);
   Book.belongsTo(Author);
 
   await Genre.sync();

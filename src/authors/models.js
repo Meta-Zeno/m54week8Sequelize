@@ -7,7 +7,6 @@ const Author = sequelize.define(
   {
     authorName: {
       type: DataTypes.STRING,
-      unique: true,
       allowNull: false,
     },
   },
